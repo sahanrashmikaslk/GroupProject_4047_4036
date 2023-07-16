@@ -1,5 +1,5 @@
 ﻿GroupProject_4047_4036
-1.0.0.0
+
 
 winexe
 C#
@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 G:\Lec Recordings\3rd\GUI\GroupProject_4047_4036\GroupProject_4047_4036\App.xaml
-11407045341
+61635804740
 
-51107139714
-194-2004305220
-MainWindow.xaml;
+21822005619
+213732925178
+View\AddStudentWindow.xaml;View\AdminWindow.xaml;View\MainWindow.xaml;View\ModuleWindow.xaml;View\StudentWindow.xaml;View\UserWindow.xaml;
 
 False
 
