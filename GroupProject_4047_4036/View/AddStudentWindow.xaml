@@ -6,7 +6,157 @@
         xmlns:local="clr-namespace:GroupProject_4047_4036.View"
         mc:Ignorable="d"
         Title="AddStudentWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Window.Resources>
+        <!-- Define the Button Style -->
+        <Style x:Key="CustomButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#4CAF50" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#45A047" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#388E3C" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#9E9E9E" />
+                    <Setter Property="Foreground" Value="Gray" />
+                    <Setter Property="Cursor" Value="Arrow" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="CustomTextBlockStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="#333333" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+
+        <!-- Style for TextBox -->
+        <Style x:Key="CustomTextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Foreground" Value="#333333" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="BorderBrush" Value="#CCCCCC" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="MinHeight" Value="30" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="CaretBrush" Value="#333333" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FFD6CD">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+
+            <StackPanel  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 10 0 0">
+                <StackPanel HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Student RegNo" Width="100" Margin="10" />
+                        <TextBox Background="#ffffff" Text="{Binding RegisterNumber}" Width="100" Margin="10"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Student Name" Width="100" Margin="10" />
+                        <TextBox Background="#ffffff" Text="{Binding StudentName}" Width="100" Margin="10"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Phone Number" Width="100" Margin="10" />
+                        <TextBox Background="#ffffff" Text="{Binding PhoneNumber}" Width="100" Margin="10"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Address" Width="100" Margin="10" />
+                        <TextBox Background="#ffffff" Text="{Binding Address}" Width="100" Margin="10" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="GPA" Width="100" Margin="10" />
+                        <TextBlock Text="{Binding StudentGpa}" Width="100" Margin="10"/>
+                    </StackPanel>
+                    <TextBlock Text="Modules" Width="100" Margin="10" FontWeight="Bold" />
+                    <StackPanel Orientation="Horizontal">
+
+                        <ComboBox ItemsSource="{Binding Viewmoduls}"
+                              SelectedValuePath="Id" 
+                              DisplayMemberPath="ModuleName"
+                              SelectedItem="{Binding Selectedmodule1}" Background="#5f27cd"
+                              Width="100" Margin="10"/>
+                        <Button Command="{Binding RegModuleCommand}" Content=" Add Module" Margin="10" Width="110" Style="{StaticResource CustomButtonStyle}" Height="24"/>
+
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+
+                    <StackPanel >
+                        <TextBlock Text="Current Modules" Margin="10 0"/>
+                        <ListBox Background="#ffff" Height="200" SelectedItem="{Binding Selectedmodule2}"  ItemsSource="{Binding RegistedModules}"  Width="200" Margin="10">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Width="180" Orientation="Horizontal" HorizontalAlignment="Left" >
+                                        <TextBlock Width="100" Margin="10" Text="{Binding ModuleName}"/>
+                                        <TextBlock Width="70" Margin="10" Text="{Binding Credit}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+
+                    <Button Content="Remove Module" Command="{Binding RemoveRegModCommand}" Margin="10" Width="139" Style="{StaticResource CustomButtonStyle}" Height="35"/>
+                </StackPanel>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Command="{Binding AddGradeCommand}" Content="Add Grade" Width="100" Style="{StaticResource CustomButtonStyle}" Margin="10 0"/>
+                        <TextBox Background="#ffffff" Text="{Binding StudentGrade}" Width="100" />
+
+                    </StackPanel>
+                    <Button Command="{Binding SaveCommand}" Content="Save" Margin="10" Width="80" Style="{StaticResource CustomButtonStyle}"/>
+
+                </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

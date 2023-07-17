@@ -42,8 +42,8 @@ namespace GroupProject_4047_4036.ViewModel
                         }
                         else
                         {
-                            UserWindow userWindow = new UserWindow();
-                            userWindow.Show();
+                            StudentWindow Window = new StudentWindow();
+                            Window.Show();
                         }
                         
                         CloseCurrentWindow();

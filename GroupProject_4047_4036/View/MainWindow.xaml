@@ -101,11 +101,11 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"  Margin="0 0 0 10">
                     <TextBlock Style="{StaticResource CustomTextBlockStyle}">Password</TextBlock>
-                    <TextBox Text="{Binding Password}" FontFamily="/Font/password.ttf#password" Style="{StaticResource CustomTextBoxStyle}"  Width="148"></TextBox>
+                    <TextBox Text="{Binding Password}" FontFamily="/Font/password.ttf#password" Style="{StaticResource CustomTextBoxStyle}"  Width="147"></TextBox>
 
                 </StackPanel>
                 <Button Style="{StaticResource CustomButtonStyle}"
-                        Command="{Binding Path=LoginWindowAdminCommand}">Login</Button>
+                        Command="{Binding Path=LoginWindowAdminCommand}" Height="36" Width="230">Login</Button>
                 <!--<Button Style="{StaticResource CustomButtonStyle}" Command="{Binding Path=LoginWindowUserCommand}">UserLogin</Button>-->
             </StackPanel>
         </Grid>

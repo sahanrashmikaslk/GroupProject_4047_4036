@@ -3,9 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GroupProject_4047_4036.View"
+        xmlns:local="clr-namespace:GroupProject_4047_4036.ViewModel"
         mc:Ignorable="d"
         Title="AdminWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:AdminWindowVM></local:AdminWindowVM>
+    </Window.DataContext>
     <Window.Resources>
         <!-- Define the Button Style -->
         <Style x:Key="CustomButtonStyle" TargetType="{x:Type Button}">
@@ -89,12 +92,53 @@
         </Grid>
 
         <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                
+
+            </Grid.ColumnDefinitions>
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock FontSize="15" FontStyle="Normal"  FontWeight="Black" Margin="0 0 0 15 ">Welcome Admin</TextBlock>
+                <TextBlock FontSize="15" FontStyle="Normal"  FontWeight="Black" Margin="0 0 0 15 " HorizontalAlignment="Center">Students</TextBlock>
                 <StackPanel Orientation="Horizontal" Margin="0 0 0 10"/>
                 <StackPanel Orientation="Horizontal"  Margin="0 0 0 10"/>
                 <Button Style="{StaticResource CustomButtonStyle}"
-                        Command="{Binding Path=LoginWindowAdminCommand}">Login</Button>
+                        Command="{Binding Path=AddStudentCommand}">Add Student</Button>
+                <Button Style="{StaticResource CustomButtonStyle}"
+                        Command="{Binding Path=RemoveStudentCommand}">Remove Student</Button>
+                <Button Style="{StaticResource CustomButtonStyle}"
+                        Command="{Binding Path=UpdateStudentCommand}">Edit Student</Button>
+                <Button Style="{StaticResource CustomButtonStyle}"
+                        Command="{Binding Path=ShowStudentCommand}">Show List</Button>
+                <!--<Button Style="{StaticResource CustomButtonStyle}" Command="{Binding Path=LoginWindowUserCommand}">UserLogin</Button>-->
+            </StackPanel>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock FontSize="15" FontStyle="Normal"  FontWeight="Black" Margin="0 0 0 15 " HorizontalAlignment="Center">User</TextBlock>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10"/>
+                <StackPanel Orientation="Horizontal"  Margin="0 0 0 10"/>
+                <Button Style="{StaticResource CustomButtonStyle}"
+                        Command="{Binding Path=AddUserCommand}">Add User</Button>
+                <Button Style="{StaticResource CustomButtonStyle}"
+                        Command="{Binding Path=RemoveUserCommand}">Remove User</Button>
+                <Button Style="{StaticResource CustomButtonStyle}"
+                        Command="{Binding Path=UpdateUserCommand}">Edit User</Button>
+                <Button Style="{StaticResource CustomButtonStyle}"
+                        Command="{Binding Path=ShowUserCommand}">Show List</Button>
+                <!--<Button Style="{StaticResource CustomButtonStyle}" Command="{Binding Path=LoginWindowUserCommand}">UserLogin</Button>-->
+            </StackPanel>
+            <StackPanel  Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock FontSize="15" FontStyle="Normal"  FontWeight="Black" Margin="0 0 0 15 " HorizontalAlignment="Center">Module</TextBlock>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10"/>
+                <StackPanel Orientation="Horizontal"  Margin="0 0 0 10"/>
+                <Button Style="{StaticResource CustomButtonStyle}"
+                        Command="{Binding Path=AddModuleCommand}">Add Module</Button>
+                <Button Style="{StaticResource CustomButtonStyle}"
+                        Command="{Binding Path=RemoveModuleCommand}">Remove Module</Button>
+                <Button Style="{StaticResource CustomButtonStyle}"
+                        Command="{Binding Path=UpdateModuleCommand}">Edit Module</Button>
+                <Button Style="{StaticResource CustomButtonStyle}"
+                        Command="{Binding Path=ShowModuleCommand}">Show List</Button>
                 <!--<Button Style="{StaticResource CustomButtonStyle}" Command="{Binding Path=LoginWindowUserCommand}">UserLogin</Button>-->
             </StackPanel>
         </Grid>

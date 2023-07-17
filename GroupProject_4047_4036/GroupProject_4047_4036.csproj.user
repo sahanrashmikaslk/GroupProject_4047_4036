@@ -7,7 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\AddModuleWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AddStudentWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddUserWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\AdminWindow.xaml.cs">
@@ -16,15 +22,27 @@
     <Compile Update="View\ModuleWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\StudentWindow.xaml.cs">
+    <Compile Update="View\ShowModuleWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\UserWindow.xaml.cs">
+    <Compile Update="View\ShowStudentWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ShowUsersWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\StudentWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="View\AddModuleWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\AddStudentWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddUserWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AdminWindow.xaml">
@@ -36,10 +54,16 @@
     <Page Update="View\ModuleWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\StudentWindow.xaml">
+    <Page Update="View\ShowModuleWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\UserWindow.xaml">
+    <Page Update="View\ShowStudentWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ShowUsersWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\StudentWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

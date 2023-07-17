@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GroupProject_4047_4036.ViewModel;
 
 namespace GroupProject_4047_4036.View
 {
@@ -21,6 +22,12 @@ namespace GroupProject_4047_4036.View
     {
         public AddStudentWindow()
         {
+            DataContext = new AddStudentViewModel();
+            InitializeComponent();
+        }
+        public AddStudentWindow(AddStudentViewModel vm)
+        {
+            DataContext = vm;
             InitializeComponent();
         }
     }

@@ -1,0 +1,108 @@
+﻿<Window x:Class="GroupProject_4047_4036.View.ShowModuleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GroupProject_4047_4036.View"
+        mc:Ignorable="d"
+        Title="ShowModuleWindow" Height="550" Width="800">
+    <Window.Resources>
+        <!-- Define the Button Style -->
+        <Style x:Key="CustomButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#4CAF50" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#45A047" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#388E3C" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#9E9E9E" />
+                    <Setter Property="Foreground" Value="Gray" />
+                    <Setter Property="Cursor" Value="Arrow" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="CustomTextBlockStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="#333333" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+
+        <!-- Style for TextBox -->
+        <Style x:Key="CustomTextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Foreground" Value="#333333" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="BorderBrush" Value="#CCCCCC" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="MinHeight" Value="30" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="CaretBrush" Value="#333333" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FFD6CD">
+        <StackPanel Margin="10">
+            <StackPanel Margin="10 30 10 10" Orientation="Horizontal" Width="430">
+                <TextBlock Text="Id" Width="20" Margin="10" FontWeight="DemiBold"/>
+                <TextBlock Text="Module Name" Width="120" Margin="10" FontWeight="DemiBold"/>
+                <TextBlock Text="Module Code" Margin="10" Width="80" FontWeight="DemiBold"/>
+                <TextBlock Text="Module Credit" Margin="10" Width="80" FontWeight="DemiBold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
+                <ListView SelectedItem="{Binding Selectedmodule}" Background="#fff"  Margin="10 0" Width="430" Height="340" ItemsSource="{Binding ModulesList,UpdateSourceTrigger=PropertyChanged}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="415">
+                                <TextBlock Width="20" Margin="10" Text="{Binding Id}"/>
+                                <TextBlock Width="120" Margin="10" Text="{Binding ModuleName}"/>
+                                <TextBlock Width="80" Margin="10" Text="{Binding Code}"/>
+                                <TextBlock Width="80" Margin="10" Text="{Binding Credit}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Update" Command="{Binding UpdateModuleCommand}" Height="25" Width="70" Margin="70 20 70 10" Style="{StaticResource CustomButtonStyle}"/>
+                <Button Content="Delete" Command="{Binding DeleteModuleCommand}" Height="25" Width="70" Margin="10 20 70 10" Style="{StaticResource CustomButtonStyle}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
